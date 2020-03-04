@@ -15,17 +15,15 @@
 <p>Everything posted here is author's personal opinion.</p>
 
 <p>I have recently purchased Nokia 6.2 and wanted to check if it sends any data somewhere, considering <a href="https://arstechnica.com/gadgets/2019/03/hmd-admits-the-nokia-7-plus-was-sending-personal-data-to-china/" target=_blank>what happened with previous models</a></p>
-<p>First, I noticed approx. daily connection to
-  <code>    dapi.hmdglobal.net
-  </code><br>
+<p>First, I noticed approx. daily connection to <quote>dapi.hmdglobal.net</quote><br>
 This is a Google Cloud that could belong to a company behind Nokia - HMD Global.<br>
 But the Privacy policy in my phone only speaks of "activation" process, not of daily diagnostics data.<br>
 So I used developer tools to remove the following packages (warning: this may break your device, I am not responsible for any consequences)</p>
 <pre><code>
-    com.hmdglobal.enterprise.api
-    com.qualcomm.qti.qms.service.telemetry
-    com.qualcomm.qti.qmmi
-    com.qualcomm.qti.qdma
+com.hmdglobal.enterprise.api
+com.qualcomm.qti.qms.service.telemetry
+com.qualcomm.qti.qmmi
+com.qualcomm.qti.qdma
 </code></pre>
 <p>Before removing them, I used APK Extractor to save APK files just in case it breaks my phone and I may be able to attempt reinstall. This part comes into play later.<br>
 The first was my blind guess about what exactly connects to <quote>dapi.hmdglobal.net</quote><br>
@@ -34,9 +32,9 @@ The next 3 I found mentioned in various forums for other devices as "safe to rem
 They are all done in same order, one right after the other:</p>
 <pre>
 <code>
-    www.pppefa.com
-    www.ppmxfa.com
-    www.forcis.claro.com.co
+www.pppefa.com
+www.ppmxfa.com
+www.forcis.claro.com.co
 </code></pre>
 <p>After some investigation, I found that the first two domains point to some Microsoft Cloud servers rented in US.<br>
 The last one most probably belongs to Colombian telecom company, and this is where it becomes interesting.<br>
