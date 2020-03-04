@@ -1,0 +1,18 @@
+body {
+    font-family: "Roboto";
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+code {
+    background-color: lightgrey;
+    display: block;
+}
+
+quote {
+    background-color: lightgreen;
+}
+
+table.links {
+    margin-top: 100px;
+}
