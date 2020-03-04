@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="keywords" content="security, nokia, telemetry">
+  <meta name="description" content="3rd party telemetry in Nokia">
+  <title>3rd party telemetry found in Nokia smartphones</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+
+<h1>3rd party telemetry found in Nokia smartphones</h1>
+
+<p>Everything posted here is author's personal opinion.</p>
+
+<p>I have recently purchased Nokia 6.2 and wanted to check if it sends any data somewhere, considering <a href="https://arstechnica.com/gadgets/2019/03/hmd-admits-the-nokia-7-plus-was-sending-personal-data-to-china/">what happened with previous models</a></p>
+<p>First, I noticed approx. daily connection to <code>dapi.hmdglobal.net</code><br>
+This is a Google Cloud that could belong to a company behind Nokia - HMD Global.<br>
+But the Privacy policy in my phone only speaks of "activation" process, not of daily diagnostics data.<br>
+So I used developer tools to remove the following packages (warning: this may break your device, I am not responsible for any consequences)</p>
+<pre><code>    com.hmdglobal.enterprise.api
+    com.qualcomm.qti.qms.service.telemetry
+    com.qualcomm.qti.qmmi
+    com.qualcomm.qti.qdma
+</code></pre>
+<p>Before removing them, I used APK Extractor to save APK files just in case it breaks my phone and I may be able to attempt reinstall. This part comes into play later.<br>
+The first was my blind guess about what exactly connects to <code>dapi.hmdglobal.net</code><br>
+The next 3 I found mentioned in various forums for other devices as "safe to remove", however, I have not seen any telemetry sent to Qualcomm or anywhere else, except what I mention next.</p>
+<p>After removing these packages, I noticed that there are some remaining unknown connections my device attempts several times per day.<br>
+They are all done in same order, one right after the other:</p>
+<pre><code>    www.pppefa.com
+    www.ppmxfa.com
+    www.forcis.claro.com.co
+</code></pre>
+<p>After some investigation, I found that the first two domains point to some Microsoft Cloud servers rented in US.<br>
+The last one most probably belongs to Colombian telecom company, and this is where it becomes interesting.<br>
+After many hours of fruitless removing of different apps in my attempt so stop it, I suddenly remembered something.<br>
+When I used APK Extractor previously, there was an empty first line with some generic icon where an app icon should have been.<br>
+I went there again and indeed, this is a hidden system app, that you can not see in the list of all apps in Settings, normally. But it turns out, you can see it in Data usage (after it successfully sends some data using your mobile connection).<br>
+The name of the app is deliberately left empty to hide it, but if you click it in Data usage, you can see that this app is <code>co.sitic.pp</code> , which can receive SMS, can make calls, and has access to internet.<br>
+As with all Android apps, you can reverse read the name to guess what it is.<br>
+Turns out, <a href="http://sitic.com.co" target=_blank>http://sitic.com.co</a> is a Colombian company, who "are leaders in innovation and create mobile and WEB applications for new products and services." (credit goes to Google Translate)</p>
+<p><a href="https://i.postimg.cc/Xqg2XNp1/Screenshot-20200228-231731.png">screenshot of the app with permissions</a></p>
+<p>In other words, this app is a 3rd party telemetry, hidden from user, not mentioned in the Privacy policy, that has access to SMS.<br>
+This looks very bad and I really hope this is a malware injected by factory and not something knowingly distributed by Nokia, HMD Global, the EU company.</p>
+<p>After removing the <code>co.sitic.pp</code> app, requests to Microsoft Cloud and Columbia stopped.<br>
+I was later pointed to a <a href="https://www.androidpit.de/forum/801980/kennt-jemand-das-paket-co-sitic-pp">German forum</a>, where (I believe) it was first found in a Nokia 7.2 device.<br>
+So, we have it confirmed in 2 devices in 2 different countries.</p>
+<p>On German forum they contacted Nokia (I assume support) but got tired exchanging emails for weeks without any result.<br>
+On 02/03/2020 I have requested an official reply from Nokia and HMD Global via <a href="mailto:press.services@nokia.com">press.services@nokia.com</a> and <a href="mailto:press@hmdglobal.com">press@hmdglobal.com</a> and waiting for reply.<br>
+Since I am not a journalist, I may never get one.</p>
+<p>TLDR: 3rd party telemetry is found in Nokia 6.2 and 7.2 devices, is hidden from user, has access to SMS, and sends data to Microsoft Cloud in US and a server in Columbia.<br>
+It is probably supplied by SITIC S.A.S., a Colombian company, and looks more like a malware than a telemetry.</p>
+
+<table class=links width=50%>
+        <tr>
+            <td><a href="https://github.com/omicron-b/" target="_self">Github profile</a></td>
+        </tr>
+    </table>
+
+</body>
+</html>
