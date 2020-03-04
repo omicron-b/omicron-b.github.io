@@ -28,11 +28,13 @@ So I used developer tools to remove the following packages (warning: this may br
     com.qualcomm.qti.qdma
 </code></pre>
 <p>Before removing them, I used APK Extractor to save APK files just in case it breaks my phone and I may be able to attempt reinstall. This part comes into play later.<br>
-The first was my blind guess about what exactly connects to <code>dapi.hmdglobal.net</code><br>
+The first was my blind guess about what exactly connects to <quote>dapi.hmdglobal.net</quote><br>
 The next 3 I found mentioned in various forums for other devices as "safe to remove", however, I have not seen any telemetry sent to Qualcomm or anywhere else, except what I mention next.</p>
 <p>After removing these packages, I noticed that there are some remaining unknown connections my device attempts several times per day.<br>
 They are all done in same order, one right after the other:</p>
-<pre><code>    www.pppefa.com
+<pre>
+<code>
+    www.pppefa.com
     www.ppmxfa.com
     www.forcis.claro.com.co
 </code></pre>
