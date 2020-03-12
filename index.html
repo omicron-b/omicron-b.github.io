@@ -16,6 +16,73 @@
                             target=_blank>a comment here</a>. According to <a href="" target=_blank>/u/singhnsk</a> this is a kill switch for devices locked to a specific carrier, not a 
   telemetry. So, the issue is kill switch preinstalled on (some?) devices in (probably?) all regions.</p>
 
+  <p>With permission, I am quoting the author in full here:</p>
+  
+  <h3>quote begins</h3>
+
+<p>I have already checked it in the month of January. It is a PhoneProtect
+app that is designed to lock a financed phone in case the debt is not
+paid timely. Here is what I/We found in the app's code. I am rooted.
+So, I can do any additional tests which the OP may require (if he
+desires, he's welcome to contact).</p>
+
+<p>It needs SMS access so that the
+carrier can block/unblock the phone even if the user has disabled
+data connection by just sending a smart SMS code that the app can
+pick up.</p>
+
+<p><b>co.sitic.pp</b></p>
+
+<pre><code>[2:14 PM, 2/1/2020] Para desbloquearlo debes pagar la deuda vencida por el
+financiamiento del equipo. Si ya pagaste comun\u00edcate con Servicio
+al Cliente e ingresa el c\u00f3digo de desbloqueo.</code></pre>
+
+<p><b>Translation:</b>
+<i>To unlock it you must pay the debt due for the financing of the
+equipment. If you have already paid, contact Customer Service and
+enter the unlock code.</i></p>
+
+<p>So, not everything can be Telemetry. It seems the app pings the server to get the latest update
+if it should block the phone or not. The app's source suggests that
+in such a case the app will require the user to enter an unlock code
+else the access to the device will be restricted.</p>
+
+<p><b>Edit:</b> Claro (as OP said the app pings to claro.com.co
+domain): Claro Americas is a Brazilian company part of América
+Móvil, a Mexican telecom group serving clients in Argentina, Brazil,
+Chile, Colombia, Costa Rica, the Dominican Republic, Ecuador, El
+Salvador, Guatemala, Honduras, Nicaragua, Panama, Paraguay, Peru,
+Puerto Rico and Uruguay.
+
+The poster didn't specify his region. If he is in one of those regions and then the app pings that domain,
+then it is even less of an issue.</p>
+
+<p><b>Edit 2:</b> Translation of more Spanish text from the app:</p>
+
+<pre><code>"Dear user, we inform you that your payment deadline expires. We invite you
+to make your payment by entering mitelcel.com or by telephone by
+calling * 111, opt. 1, opt. 2. In case of not making your payment in
+the following. 24 hrs., Your service will be suspended and your
+terminal equipment disabled. The service and equipment will be
+restored once you have made your payment. Information in * 111. "
+
+"Your equipment has been disabled due to your debit. To rehabilitate your
+equipment and continue using it, we invite you to make your payment
+as soon as possible. You can make the payment online at www.mitelcel
+.com, through the App My Telcel or in Customer Service Centers.For
+information, dial * 123 or * 121 in Mexico City, Mexico City, Hidalgo
+and Morelos or * 111 from the rest of the In order to avoid delays
+and your equipment being disabled, we invite you to direct your
+payment to an odd credit card. More information at
+www.telcel.com/paymentspayment."</code></pre>
+
+<p>So, an app that can block financed phones (if the due not paid timely), is
+connecting to the carrier's domain to get some data, <b>is not "malware"</b>.
+Agree though that it is a wrong inclusion for regions not covered by
+that carrier.</p>
+
+<h3>end of quote </h3>
+
   <p>A bit later, <a href="https://community.phones.nokia.com/discussion/comment/154516/#Comment_154516" target=_blank>an official reply has been posted</a> confirming this and stating that this app will be removed soon with an update to Android 10.</p>
   
   <p>On 12/03/2020, there is no reply yet about HMD Global telemetry in devices. This article will be updated.</p>
